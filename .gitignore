@@ -1,0 +1,12 @@
+# Chave secreta da conta de serviço do Firebase - NUNCA suba isso pro GitHub
+firebase-service-account.json
+
+# Banco de dados local (cada pessoa gera o seu ao rodar o projeto)
+database/cve_tracker.db
+
+# Arquivos comuns do Python
+__pycache__/
+*.pyc
+
+# Pasta que o Firebase CLI cria depois do login
+.firebase/

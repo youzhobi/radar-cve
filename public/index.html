@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radar de CVEs</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Cabeçalho da página -->
+  <header class="topo">
+    <h1>Radar de CVEs</h1>
+    <p class="subtitulo">Vulnerabilidades de segurança publicadas nos últimos 7 dias</p>
+  </header>
+
+  <!-- Aqui vão aparecer os cartõezinhos "CRITICAL: 3", "HIGH: 12"...
+       O JavaScript (app.js) que preenche isso sozinho. -->
+  <section class="resumo" id="resumo-severidade"></section>
+
+  <!-- CVEs por dia -->
+  <section class="bloco">
+    <h2 class="titulo-bloco">Tendência por dia</h2>
+    <div id="grafico-tendencia" class="grafico-tendencia"></div>
+  </section>
+
+  <!-- Produtos que aparecem em mais de uma CVE crítica -->
+  <section class="bloco">
+    <h2 class="titulo-bloco">Produtos recorrentes em CVEs críticas</h2>
+    <ul id="lista-produtos-recorrentes" class="lista-produtos"></ul>
+  </section>
+
+  <!-- Botões para filtrar a tabela por severidade -->
+  <section class="filtros">
+    <button data-filtro="TODAS" class="filtro ativo">Todas</button>
+    <button data-filtro="CRITICAL" class="filtro">Critical</button>
+    <button data-filtro="HIGH" class="filtro">High</button>
+    <button data-filtro="MEDIUM" class="filtro">Medium</button>
+    <button data-filtro="LOW" class="filtro">Low</button>
+    <button data-filtro="DESCONHECIDA" class="filtro">Desconhecida</button>
+  </section>
+
+  <!-- Tabela principal, também preenchida pelo app.js -->
+  <main>
+    <table class="tabela-cves">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Severidade</th>
+          <th>Score</th>
+          <th>Descrição</th>
+          <th>Publicada em</th>
+        </tr>
+      </thead>
+      <tbody id="corpo-tabela"></tbody>
+    </table>
+  </main>
+
+  <p id="estado-carregamento" class="carregando">Carregando dados do Firestore...</p>
+
+  <!-- SDK do Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

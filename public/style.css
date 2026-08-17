@@ -1,0 +1,230 @@
+/* ==================================================================
+   VARIÁVEIS DE COR
+   ==================================================================
+   Pense nisso como a "caixa de tintas" do site: toda cor usada no
+   CSS vem daqui, então se você quiser mudar o tema, muda só aqui.
+
+   As cores --low, --medium, --high e --critical seguem a mesma
+   escala de cores que ferramentas de segurança de verdade usam
+   para o CVSS (o "termômetro de gravidade" das vulnerabilidades).
+   ================================================================== */
+:root {
+  --fundo: #0d1321;
+  --fundo-cartao: #161d2e;
+  --texto: #e8ecf4;
+  --texto-fraco: #8891a7;
+  --borda: #2a3350;
+
+  --low: #4caf7d;
+  --medium: #d9b93c;
+  --high: #e0863f;
+  --critical: #e0483f;
+}
+
+/* box-sizing: border-box faz o padding NÃO aumentar o tamanho
+   total dos elementos - evita muita dor de cabeça de layout. */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* -------------------- Cabeçalho -------------------- */
+.topo {
+  padding: 40px 24px 20px;
+  border-bottom: 1px solid var(--borda);
+}
+
+.topo h1 {
+  margin: 0;
+  font-family: "Courier New", monospace; /* estilo "terminal", combina com o tema */
+  font-size: 28px;
+  letter-spacing: -0.5px;
+}
+
+.subtitulo {
+  color: var(--texto-fraco);
+  margin: 6px 0 0;
+  font-size: 14px;
+}
+
+/* -------------------- Cartões de resumo -------------------- */
+.resumo {
+  display: flex;
+  gap: 12px;
+  padding: 20px 24px;
+  flex-wrap: wrap;
+}
+
+.cartao-severidade {
+  background: var(--fundo-cartao);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 14px 20px;
+  min-width: 110px;
+}
+
+.cartao-severidade .numero {
+  font-family: "Courier New", monospace;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.cartao-severidade .rotulo {
+  font-size: 12px;
+  color: var(--texto-fraco);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* -------------------- Blocos de tendência / recorrentes -------------------- */
+.bloco {
+  padding: 4px 24px 20px;
+}
+
+.titulo-bloco {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--texto-fraco);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 10px;
+}
+
+.grafico-tendencia {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 80px;
+}
+
+.barra-dia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  max-width: 60px;
+}
+
+.barra-dia .barra {
+  width: 100%;
+  background: var(--high);
+  border-radius: 4px 4px 0 0;
+  min-height: 4px;
+}
+
+.barra-dia .rotulo-dia {
+  font-size: 11px;
+  color: var(--texto-fraco);
+  white-space: nowrap;
+}
+
+.lista-produtos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lista-produtos li {
+  display: flex;
+  justify-content: space-between;
+  background: var(--fundo-cartao);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+}
+
+.lista-produtos .contagem {
+  color: var(--critical);
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+}
+
+/* -------------------- Botões de filtro -------------------- */
+.filtros {
+  display: flex;
+  gap: 8px;
+  padding: 0 24px 20px;
+  flex-wrap: wrap;
+}
+
+.filtro {
+  background: transparent;
+  border: 1px solid var(--borda);
+  color: var(--texto-fraco);
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.filtro.ativo {
+  background: var(--fundo-cartao);
+  color: var(--texto);
+  border-color: var(--texto-fraco);
+}
+
+/* -------------------- Tabela -------------------- */
+main {
+  padding: 0 24px 40px;
+  overflow-x: auto;
+}
+
+.tabela-cves {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.tabela-cves th {
+  text-align: left;
+  color: var(--texto-fraco);
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--borda);
+}
+
+.tabela-cves td {
+  padding: 12px;
+  border-bottom: 1px solid var(--borda);
+  vertical-align: top;
+}
+
+.id-cve {
+  font-family: "Courier New", monospace;
+}
+
+/* "Pílulas" coloridas mostrando a severidade de cada CVE */
+.pilula-severidade {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.pilula-severidade.low      { background: rgba(76, 175, 125, 0.18); color: var(--low); }
+.pilula-severidade.medium   { background: rgba(217, 185, 60, 0.18); color: var(--medium); }
+.pilula-severidade.high     { background: rgba(224, 134, 63, 0.18); color: var(--high); }
+.pilula-severidade.critical { background: rgba(224, 72, 63, 0.18);  color: var(--critical); }
+.pilula-severidade.desconhecida { background: rgba(136, 145, 167, 0.18); color: var(--texto-fraco); }
+
+.carregando {
+  text-align: center;
+  color: var(--texto-fraco);
+  font-size: 13px;
+}
