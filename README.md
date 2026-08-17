@@ -127,4 +127,4 @@ O Firestore fica com leitura pública e escrita bloqueada (`firestore.rules`): q
 
 Interface principal do Radar CVE:
 
-![Dashboard do Radar CVE](docs/images/Dashboard.png)
+![Dashboard do Radar CVE](docs/images/dashboard.png)
