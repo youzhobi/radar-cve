@@ -121,3 +121,10 @@ cve-tracker/
 ## Segurança dos dados
 
 O Firestore fica com leitura pública e escrita bloqueada (`firestore.rules`): qualquer visitante pode ler o painel, mas só o script Python — autenticado com a chave da conta de serviço, que ignora essas regras por ser um acesso administrativo — pode escrever. A configuração do Firebase exposta em `app.js` não é secreta; quem protege os dados são as regras, não o sigilo da configuração.
+
+
+## 📊 Dashboard
+
+Interface principal do Radar CVE:
+
+![Dashboard do Radar CVE](docs/images/Dashboard.png)
